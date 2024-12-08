@@ -13,17 +13,6 @@ def get_system_info():
     # CPU Usage (Current Load)
     print(f"Current CPU Usage: {psutil.cpu_percent(interval=1)}%")
 
-    # CPU Temperature (if supported by system)
-    try:
-        cpu_temp = psutil.sensors_temperatures()
-        if 'coretemp' in cpu_temp:
-            for temp in cpu_temp['coretemp']:
-                print(f"CPU Temperature: {temp.current}°C")
-        else:
-            print("CPU Temperature: Not available")
-    except Exception as e:
-        print(f"Error fetching CPU temperature: {e}")
-
     # Memory Info
     total_memory = psutil.virtual_memory().total / (1024 ** 3)
     used_memory = psutil.virtual_memory().used / (1024 ** 3)

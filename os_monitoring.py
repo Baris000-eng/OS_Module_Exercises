@@ -25,6 +25,7 @@ def log_alert(message):
 def check_cpu_usage():
     """Check if CPU usage exceeds the defined threshold."""
     cpu_usage = psutil.cpu_percent(interval=1)
+    print('Cpu usage is: '+str(cpu_usage)+'')
     if cpu_usage > CPU_THRESHOLD:
         log_alert(f"ALERT: CPU Usage is at {cpu_usage}% - Exceeds {CPU_THRESHOLD}% threshold.")
 
@@ -32,6 +33,7 @@ def check_memory_usage():
     """Check if memory usage exceeds the defined threshold."""
     memory = psutil.virtual_memory()
     memory_usage = memory.percent
+    print('Memory usage is: '+str(memory_usage)+'')
     if memory_usage > MEMORY_THRESHOLD:
         log_alert(f"ALERT: Memory Usage is at {memory_usage}% - Exceeds {MEMORY_THRESHOLD}% threshold.")
 
@@ -39,6 +41,7 @@ def check_disk_usage():
     """Check if disk usage exceeds the defined threshold."""
     disk = psutil.disk_usage('/')
     disk_usage = disk.percent
+    print('Disk usage is: '+str(disk_usage)+'')
     if disk_usage > DISK_THRESHOLD:
         log_alert(f"ALERT: Disk Usage is at {disk_usage}% - Exceeds {DISK_THRESHOLD}% threshold.")
 
@@ -81,11 +84,17 @@ def monitor_system():
         check_disk_usage()
         check_network_usage()
         monitor_processes()
-        time.sleep(5)  # Sleep for 5 seconds before checking again
+        print()
+        print()
+        print('-------------------------------------------------------------------------')
+
+        time.sleep(3)  # Sleep for 3 seconds before checking again
 
 if __name__ == "__main__":
     log_alert("System Monitoring Started")
+    print()
     try:
         monitor_system()  # Start monitoring system
     except KeyboardInterrupt:
+        print()
         log_alert("System Monitoring Stopped by User")

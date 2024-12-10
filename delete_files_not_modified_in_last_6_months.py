@@ -40,6 +40,5 @@ def main():
     else:
         print("The provided directory does not exist. Please check the path and try again.")
 
-# Run the script
 if __name__ == "__main__":
     main()

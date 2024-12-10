@@ -68,7 +68,6 @@ def get_system_info():
     battery = psutil.sensors_battery()
     if battery:
         print(f"Battery: {battery.percent}% - {'Charging' if battery.power_plugged else 'Discharging'}")
-        # Use timedelta correctly
         time_left = timedelta(seconds=battery.secsleft) if battery.secsleft != -1 else 'N/A'
         print(f"Time Left: {time_left}")
     else:

@@ -86,6 +86,6 @@ def get_system_info():
     # Current Time
     print(f"Current Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
-# Call the function to print all info
+
 get_system_info()
 

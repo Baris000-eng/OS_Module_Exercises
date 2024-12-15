@@ -3,23 +3,19 @@ import time
 import logging
 from datetime import datetime
 
-# Thresholds for alerting
-
-# in percentages
+# Thresholds for alerting in percentages
 CPU_THRESHOLD = 80  
 MEMORY_THRESHOLD = 80  
 DISK_THRESHOLD = 85  
 
 
 ALERT_LOG_FILE = "system_alerts.log"  
-
-# Initialize logging
 logging.basicConfig(filename=ALERT_LOG_FILE, level=logging.INFO, 
                     format="%(asctime)s - %(message)s")
 
 def log_alert(message):
     """Logs alerts to a log file."""
-    print(message)  # Print to console as well
+    print(message)  
     logging.info(message)
 
 def check_cpu_usage():

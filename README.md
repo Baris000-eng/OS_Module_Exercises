@@ -1,1 +1,1 @@
-This is a repository that contains exercises and project done by using Python's os module.
+This is a repository that contains exercises and projects done by using Python's os module.
